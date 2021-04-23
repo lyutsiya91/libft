@@ -5,6 +5,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*str;
 	size_t	i;
 
+	if (start >= ft_strlen(s))
+		return ((void *)0);
 	str = (char *)malloc(sizeof(*s) * (len + 1));
 	if (str != ((void *)0))
 	{
