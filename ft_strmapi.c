@@ -9,12 +9,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	i = 0;
 	if (str != ((void *)0))
 	{
-		while (s[i])
+		while (str[i])
 		{
 			str[i] = f(i, s[i]);
 			i++;
 		}
 		str[i] = '\0';
+		return (str);
 	}
 	else
 		return ((void *)0);
