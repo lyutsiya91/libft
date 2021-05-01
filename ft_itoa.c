@@ -15,7 +15,7 @@ static int	ft_count(int n)
 	return (c);
 }
 
-char	*ft_help(int len, int n)
+static char	*ft_help(int len, int n)
 {
 	char	*str;
 

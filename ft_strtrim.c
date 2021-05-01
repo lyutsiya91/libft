@@ -30,7 +30,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	len = ft_strlen(s1) - 1;
 	if (n > len)
-		return ("");
+		return (ft_strdup(""));
 	while (s1[len])
 	{
 		if (ft_find(set, s1[len]) != 1)

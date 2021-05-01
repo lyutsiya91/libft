@@ -2,16 +2,20 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	char	*ans;
+	char	*str;
 
-	i = ft_strlen(s) + 1;
-	s += i;
-	while (i)
+	if (c == '\0')
+		return ((char *)s + ft_strlen(s));
+	str = (char *)s;
+	ans = (void *)0;
+	while (*str)
 	{
-		if (*s == c)
-			return ((char *)s);
-		s--;
-		i--;
+		str = ft_memchr(str, c, ft_strlen(str) + 1);
+		if (str == (void *)0)
+			break ;
+		ans = str;
+		str++;
 	}
-	return ((void *)0);
+	return (ans);
 }

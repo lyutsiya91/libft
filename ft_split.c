@@ -2,22 +2,23 @@
 
 static int	ft_count(char const *s, char c)
 {
+	int	num;
 	int	i;
-	int	count;
 
+	num = 0;
 	i = 0;
-	count = 1;
+	if (!s)
+		return (num);
 	while (s[i])
 	{
-		if (s[i] == c)
-		{
+		while (s[i] == c && s[i])
 			i++;
-			count++;
-		}
-		else
+		if (s[i] != c && s[i])
+			num++;
+		while (s[i] != c && s[i])
 			i++;
 	}
-	return (count);
+	return (num);
 }
 
 static int	ft_wordlen(char const *s, char c)
@@ -42,7 +43,7 @@ static void	ft_free(char **arr, int n)
 	free(arr);
 }
 
-char	**ft_help(char const *s, char c, char **arr)
+static char	**ft_create(char const *s, char c, char **arr)
 {
 	int		i;
 	int		icol;
@@ -77,5 +78,5 @@ char	**ft_split(char const *s, char c)
 	arr = (char **)malloc(sizeof(char *) * (ft_count(s, c) + 1));
 	if (!arr || !s)
 		return ((void *)0);
-	return (ft_help(s, c, arr));
+	return (ft_create(s, c, arr));
 }

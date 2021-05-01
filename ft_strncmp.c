@@ -2,14 +2,17 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
+	size_t	len1;
+	size_t	len2;
+	size_t	len;
 
-	i = 0;
-	while ((s1[i] || s2[i]) && (i < n))
-	{
-		if (s1[i] != s2[i])
-			return (s1[i] - s2[i]);
-		i++;
-	}
-	return (0);
+	len1 = ft_strlen(s1) + 1;
+	len2 = ft_strlen(s2) + 1;
+	if (len1 > len2)
+		len = len2;
+	else
+		len = len1;
+	if (len > n)
+		len = n;
+	return (ft_memcmp(s1, s2, len));
 }
