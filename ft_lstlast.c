@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgalio <sgalio@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 19:01:55 by sgalio            #+#    #+#             */
-/*   Updated: 2021/11/17 19:02:01 by sgalio           ###   ########.fr       */
+/*   Created: 2021/11/17 20:27:47 by sgalio            #+#    #+#             */
+/*   Updated: 2021/11/17 20:37:09 by sgalio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-
-	i = 0;
-	if (n > 0)
+	if (!lst)
+		return (NULL);
+	while (lst)
 	{
-		while (n)
-		{
-			((unsigned char *)s)[i] = '\0';
-			i++;
-			n--;
-		}
+		if (lst->next == NULL)
+			return (lst);
+		lst = lst->next;
 	}
+	return (lst);
 }
